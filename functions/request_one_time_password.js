@@ -22,7 +22,7 @@ module.exports = function (req, res) {
         {
           body: 'your code is: ' + code,
           to: phone,
-          from: '+13465344802'
+          from: '+13465344802' //number given us by twilio number
         },
         (err) => {
           //callback
@@ -40,6 +40,7 @@ module.exports = function (req, res) {
             });
         }
       );
+      return null;
     })
     .catch((err) => {
       res.status(422).send({ error: err });

@@ -9,11 +9,16 @@ const requestOneTimePassword = require('./request_one_time_password');
 const verifyOneTimePassword = require('./verify_one_time_password');
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL:
+    'https://sgrider-reactnative-advanced-default-rtdb.firebaseio.com'
 });
 //--------------------------
 
 exports.createUser = functions.https.onRequest(createUser);
 exports.requestOneTimePassword = functions.https.onRequest(
   requestOneTimePassword
+);
+exports.verifyOneTimePassword = functions.https.onRequest(
+  verifyOneTimePassword
 );

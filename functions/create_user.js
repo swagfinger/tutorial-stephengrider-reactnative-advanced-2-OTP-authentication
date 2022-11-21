@@ -10,7 +10,7 @@ module.exports = (req, res) => {
   //format the phone number to remove dashes and parens
   const phone = String(req.body.phone).replace(/[^\d]/g, ''); //anything not a digit will be replaced with ""
 
-  //create a new user account using that phone number
+  //create a new user account using that phone number (async), firebase returns a
   admin
     .auth()
     .createUser({ uid: phone })

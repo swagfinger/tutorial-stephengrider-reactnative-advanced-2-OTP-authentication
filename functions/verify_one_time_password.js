@@ -14,7 +14,7 @@ module.exports = function (req, res) {
     .auth()
     .getUser(phone)
     .then(async () => {
-      const ref = admin.database().ref('users/' + phone);
+      const ref = admin.database().ref(`users/${phone}`);
       //get snapshot of data in database
       await ref.once('value', (snapshot) => {
         const user = snapshot.val();
@@ -26,11 +26,12 @@ module.exports = function (req, res) {
         //if code is correct, make the codeValid=false
         ref.update({ codeValid: false });
 
-        //createCustomToken takes id of a user and generates a JWT for that user (async)
+        //with authentication sign-in method Anonymous,
+        //- createCustomToken takes id of a user and generates a JWT for that user(async)
         //we used phone number as id, hence why we pass phone as argument
         admin
           .auth()
-          .createCustomToken(phone)
+          .createCustomToken(phone) //create JWT
           .then((token) => res.send({ token: token }));
       });
     })

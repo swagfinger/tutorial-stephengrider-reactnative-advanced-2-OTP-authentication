@@ -30,16 +30,29 @@
 npm i -g firebase-tools
 ```
 
+### login
+
+```
+firebase login
+```
+
 ### create firebase project
 
 - then go to google cloud console and select the project, click functions... you have to click 'get started' and install firebase globally
 
 ```cmd
 firebase init
+
 ```
+
+### make a realtime database
+
+- create a new db if it doesnt exist, get url for db
+- this step adds database to the project settings -> service accounts -> Admin SDK configuration snippet
 
 ### deploy function /redeploy
 
+- deploy from project root directory.
 - deploys functions to google cloud functions
 - you can get project-id from https://console.firebase.google.com/ -> project settings
 - firebase deploy --project <project-id>
@@ -127,3 +140,9 @@ admin.initializeApp({
 ## Firebase
 
 - createCustomToken() takes id of a user and generates a JWT for that user.
+
+## Postman
+
+- if you deploy your code, you get an url of where the api can be accessed on cloud,
+- use Postman to test.
+- "POST" methods: createUser, requestOneTimePassword
