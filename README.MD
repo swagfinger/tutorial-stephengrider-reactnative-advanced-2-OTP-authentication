@@ -99,6 +99,31 @@ admin.initializeApp({
 
 ## enable user authentication
 
+- we tell firebase we will handle authentication ourselves.
 - firebase authentication feature for projects is off by default -> need to set up sign-in method
 - use anonymous - Enable anonymous guest accounts in your application, which lets you enforce user-specific security and Firebase rules without requiring credentials from your users.
 - https://firebase.google.com/docs/auth?authuser=0&hl=en
+
+## twilio
+
+- twilio is used for sending sms's
+- create an account (this annoyed me because the account creation process takes forever with verification)
+- once logged in - create a twilio phone number
+- twilio uses callbacks and not promises.
+
+### install
+
+### Testing sms 1
+
+- Api explorer -> end points -> programmable sms -> messages -> body
+
+### Testing sms 2
+
+- side menu -> Messaging -> send an sms
+- BUT FIRST.. https://console.twilio.com/us1/develop/sms/try-it-out/get-set-up
+- you need to setup a messaging service: which is a group where you put all the contacts that will receive messages
+- "From Messaging Service SID" will show this group in its contents after this "messaging service" group is created
+
+## Firebase
+
+- createCustomToken() takes id of a user and generates a JWT for that user.
