@@ -6,7 +6,7 @@ module.exports = function (req, res) {
   }
 
   //scrubbing of values (validation)
-  const phone = String(req.body.phone).replace(/[^\d]/g, '');
+  const phone = String(req.body.phone).replace(/[^\d+]/g, '');
   const code = parseInt(req.body.code);
 
   //fetch user from db / fetch code associated with user
